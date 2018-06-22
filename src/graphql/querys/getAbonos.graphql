@@ -1,0 +1,12 @@
+query getAbonos {
+  getAbonos {
+    id
+    nombre
+    precio
+    idRubro
+    rubro {
+      id
+      nombre
+    }
+  }
+}

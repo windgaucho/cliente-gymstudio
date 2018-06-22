@@ -1,0 +1,12 @@
+query getArticulo($id: String!) {
+  getArticulo(id: $id) {
+    id
+    nombre
+    precio
+    idRubro
+    rubro {
+      id
+      nombre
+    }
+  }
+}

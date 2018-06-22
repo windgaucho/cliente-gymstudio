@@ -1,0 +1,9 @@
+query buscarxApyn($busqueda: String!) {
+  buscarxApyn(busqueda: $busqueda) {
+    id
+    apellido
+    nombre
+    fechaIngreso
+    fechaVencimiento
+  }
+}

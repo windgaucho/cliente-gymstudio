@@ -1,0 +1,8 @@
+mutation createRubro($rubro: InputRubro!) {
+  createRubro(rubro: $rubro) {
+    id
+    nombre
+    tipo
+    grupo
+  }
+}

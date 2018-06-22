@@ -1,0 +1,8 @@
+mutation updateVenta($venta: InputVenta!) {
+  updateVenta(venta: $venta) {
+    id
+    fecha
+    detalle
+    importe
+  }
+}

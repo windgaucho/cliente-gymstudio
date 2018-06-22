@@ -1,0 +1,20 @@
+query getVentas($desde: String!, $hasta: String!) {
+  getVentas(desde: $desde, hasta: $hasta) {
+    id
+    idArticulo
+    idCliente
+    fecha
+    detalle
+    importe
+    pago
+    articulo {
+      id
+      nombre
+    }
+    cliente {
+      id
+      apellido
+      nombre
+    }
+  }
+}

@@ -1,0 +1,8 @@
+query getRubro($id: String!) {
+  getRubro(id: $id) {
+    id
+    nombre
+    tipo
+    grupo
+  }
+}

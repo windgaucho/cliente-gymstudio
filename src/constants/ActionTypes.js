@@ -1,0 +1,2 @@
+export const SET_APYN_CLIENTE = 'SET_APYN_CLIENTE';
+

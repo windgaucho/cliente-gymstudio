@@ -1,0 +1,7 @@
+query getClientes {
+  getClientes {
+    id
+    apellido
+    nombre
+  }
+}

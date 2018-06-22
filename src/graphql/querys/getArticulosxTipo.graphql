@@ -1,0 +1,12 @@
+query getArticulosxTipo($tipo: String!) {
+  getArticulosxTipo(tipo: $tipo) {
+    id
+    nombre
+    precio
+    idRubro
+    rubro {
+      id
+      nombre
+    }
+  }
+}

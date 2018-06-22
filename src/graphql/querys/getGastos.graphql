@@ -1,0 +1,13 @@
+query getGastos($desde: String!, $hasta: String!) {
+  getGastos(desde: $desde, hasta: $hasta) {
+    id
+    idArticulo
+    fecha
+    detalle
+    importe
+    articulo {
+      id
+      nombre
+    }
+  }
+}

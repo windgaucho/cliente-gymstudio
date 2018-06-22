@@ -1,0 +1,8 @@
+mutation createPago($pago: InputPago!) {
+  createPago(pago: $pago) {
+    id
+    fecha
+    detalle
+    importe
+  }
+}

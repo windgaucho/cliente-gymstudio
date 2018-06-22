@@ -1,0 +1,13 @@
+mutation updateCliente($cliente: InputCliente!) {
+  updateCliente(cliente: $cliente) {
+    id
+    apellido
+    nombre
+    dni
+    domicilio
+    contacto
+    email
+    fechaIngreso
+    fechaVencimiento
+  }
+}

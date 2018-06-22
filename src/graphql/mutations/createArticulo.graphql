@@ -1,0 +1,11 @@
+mutation createArticulo($articulo: InputArticulo!) {
+  createArticulo(articulo: $articulo) {
+    id
+    nombre
+    precio
+    rubro {
+      id
+      nombre
+    }
+  }
+}

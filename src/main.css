@@ -1,0 +1,50 @@
+body {
+  margin: 0px;
+}
+
+.ant-card {
+  border-radius: 6px;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+}
+
+.ant-card-head {
+  border-radius: 6px;
+}
+
+.ant-table-thead > tr > th, .ant-table-tbody > tr > td {
+  padding: 16px 15px;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.ant-table-thead > tr > th {
+  color: #788195 !important;
+  font-size: 13px !important;
+  background-color: #f1f3f6 !important;
+  border-bottom: 0 !important;
+}
+
+.ant-table-tbody > tr > td {
+  font-size: 12px !important;
+  color: #797979 !important;
+  border-bottom: 1px solid #e9e9e9 !important;
+  padding: 12px 12px !important;
+}
+
+.ant-table-thead > tr > th, .ant-table-tbody > tr > td {
+  white-space: nowrap !important;
+  text-align: left !important;
+}
+
+/* header */
+#app-header .trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color .3s;
+}
+
+#app-header .trigger:hover {
+  color: #1890ff;
+}

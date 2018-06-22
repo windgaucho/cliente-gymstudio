@@ -1,0 +1,3 @@
+mutation removeGasto($id: Int!) {
+  removeGasto(id: $id)
+}

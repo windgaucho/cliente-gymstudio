@@ -1,0 +1,13 @@
+mutation createGasto($gasto: InputGasto!) {
+  createGasto(gasto: $gasto) {
+    id
+    fecha
+    detalle
+    importe
+    idArticulo
+    articulo {
+      id
+      nombre
+    }
+  }
+}

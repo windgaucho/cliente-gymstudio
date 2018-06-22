@@ -1,0 +1,12 @@
+query getArticulos {
+  getArticulos {
+    id
+    nombre
+    precio
+    idRubro
+    rubro {
+      id
+      nombre
+    }
+  }
+}

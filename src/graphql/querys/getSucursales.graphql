@@ -1,0 +1,10 @@
+query getSucursales {
+  sucursales {
+    id
+    nombre
+    ciudad {
+      id
+      nombre
+    }
+  }
+}

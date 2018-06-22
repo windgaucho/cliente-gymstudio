@@ -1,0 +1,8 @@
+query getRubros {
+  getRubros {
+    id
+    nombre
+    tipo
+    grupo
+  }
+}

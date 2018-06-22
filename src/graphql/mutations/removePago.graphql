@@ -1,0 +1,3 @@
+mutation removePago($id: Int!) {
+  removePago(id: $id)
+}

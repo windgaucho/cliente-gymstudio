@@ -1,0 +1,11 @@
+mutation updateArticulo($articulo: InputArticulo!) {
+  updateArticulo(articulo: $articulo) {
+    id
+    nombre
+    precio
+    rubro {
+      id
+      nombre
+    }
+  }
+}

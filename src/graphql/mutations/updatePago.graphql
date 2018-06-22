@@ -1,0 +1,8 @@
+mutation updatePago($pago: InputPago!) {
+  updatePago(pago: $pago) {
+    id
+    fecha
+    detalle
+    importe
+  }
+}

@@ -1,0 +1,8 @@
+mutation createVenta($venta: InputVenta!) {
+  createVenta(venta: $venta) {
+    id
+    fecha
+    detalle
+    importe
+  }
+}

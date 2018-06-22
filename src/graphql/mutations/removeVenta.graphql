@@ -1,0 +1,3 @@
+mutation removeVenta($id: Int!) {
+  removeVenta(id: $id)
+}

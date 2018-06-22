@@ -1,0 +1,9 @@
+mutation createCliente($cliente: InputCliente!) {
+  createCliente(cliente: $cliente) {
+    id
+    apellido
+    nombre
+    fechaIngreso
+    fechaVencimiento
+  }
+}
