@@ -12,7 +12,11 @@ import './main.css';
 import configureStore from './store/configureStore';
 import App from './components/App';
 
-const link = new HttpLink({ uri: 'http://localhost:3001/graphql' });
+const link = new HttpLink({
+  uri: 'http://localhost:8003/graphql',
+  credentials: 'include', // esta configuracion incluye la cookie en el browser
+});
+
 const cache = new InMemoryCache();
 const client = new ApolloClient({
   link,

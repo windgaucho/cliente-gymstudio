@@ -1,0 +1,8 @@
+query getUsuario {
+  user {
+    _id
+    userId
+    apellido
+    nombre
+  }
+}
