@@ -25,8 +25,10 @@ const commonConfig = merge([
 const productionConfig = merge([
   {
     output: {
+      path: PATHS.build,
       chunkFilename: '[name].[chunkhash:4].js',
       filename: '[name].[chunkhash:4].js',
+      publicPath: '/',
     },
   },
   parts.clean(PATHS.build),
@@ -77,6 +79,11 @@ const productionConfig = merge([
  * CONFIGURACION PARA DESARROLLO
  */
 const developmentConfig = merge([
+  {
+    output: {
+      publicPath: '/',
+    },
+  },
   parts.generateSourceMaps({ type: 'eval-source-map' }),
   parts.devServer({
     // Customize host/port here if needed

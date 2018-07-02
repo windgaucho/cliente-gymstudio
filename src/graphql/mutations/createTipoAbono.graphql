@@ -1,0 +1,8 @@
+mutation createTipoAbono($tipoAbono: InputTipoAbono!) {
+  createTipoAbono(tipoAbono: $tipoAbono) {
+    id
+    nombre
+    precio
+    idSucursal
+  }
+}

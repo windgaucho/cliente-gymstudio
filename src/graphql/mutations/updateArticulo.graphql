@@ -3,9 +3,12 @@ mutation updateArticulo($articulo: InputArticulo!) {
     id
     nombre
     precio
+    idRubro
+    idSucursal
     rubro {
       id
       nombre
+      idSucursal
     }
   }
 }

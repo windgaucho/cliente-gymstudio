@@ -4,7 +4,9 @@ import { Modal } from 'antd';
 import { graphql, compose } from 'react-apollo';
 
 import Sucursales from './Sucursales';
-import getSucursales from '../../../graphql/querys/getSucursales.graphql';
+import querySucursales from '../../../graphql/querys/getSucursales.graphql';
+import removeSucursal from '../../../graphql/mutations/removeSucursal.graphql';
+
 import Loading from '../../common/Loading';
 
 class SucursalesContainer extends Component {
@@ -25,6 +27,7 @@ class SucursalesContainer extends Component {
     const confirm = Modal.confirm;
     const _self = this;
     const { id } = e.target;
+
     confirm({
       title: 'Seguro desea eliminar la Sucursal?',
       content: 'Sucursales',
@@ -32,9 +35,7 @@ class SucursalesContainer extends Component {
       okType: 'danger',
       cancelText: 'No',
       onOk() {
-        _self.props.removeRubro({
-          variables: { id },
-        })
+        _self.props.remove(id)
           .then(() => _self.props.history.push('/administracion/Sucursales'))
           .catch(error => _self.setState({ error: error.message }));
       },
@@ -65,12 +66,16 @@ SucursalesContainer.propTypes = {
 };
 
 export default compose(
-  graphql(getSucursales),
-  /* graphql(removeRubro, { name: 'removeRubro',
-    options: {
-      refetchQueries: [
-        'getSucursales',
-      ],
-    },
-  })*/
+  graphql(querySucursales),
+  graphql(removeSucursal, {
+    props: ({ mutate }) => ({
+      remove: (id) =>
+        mutate({
+          variables: { id },
+          refetchQueries: [{
+            query: querySucursales,
+          }],
+        }),
+    }),
+  })
 )(SucursalesContainer);

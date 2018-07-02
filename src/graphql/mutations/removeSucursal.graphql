@@ -1,0 +1,3 @@
+mutation removeSucursal($id: Int!) {
+  removeSucursal(id: $id)
+}

@@ -1,8 +1,7 @@
 query getRubro($id: String!) {
-  getRubro(id: $id) {
+  rubro(id: $id) {
     id
     nombre
-    tipo
-    grupo
+    idSucursal
   }
 }

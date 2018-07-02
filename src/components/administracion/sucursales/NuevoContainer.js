@@ -6,6 +6,7 @@ import { Button } from 'antd';
 import FormSucursal from './FormSucursal';
 import createSucursal from '../../../graphql/mutations/createSucursal.graphql';
 import queryCiudades from '../../../graphql/querys/getCiudades.graphql';
+import querySucursales from '../../../graphql/querys/getSucursales.graphql';
 import Loading from '../../common/Loading';
 
 class NuevoContainer extends Component {
@@ -15,7 +16,6 @@ class NuevoContainer extends Component {
       idCiudad: '',
     },
     error: {},
-    formVisible: false,
   };
 
   onSubmit = () => {
@@ -35,8 +35,8 @@ class NuevoContainer extends Component {
     });
   }
 
-  handleModal = () => {
-    this.setState({ formVisible: !this.state.formVisible });
+  onCancel = () => {
+    this.props.history.push('/administracion/sucursales');
   }
 
   render() {
@@ -44,20 +44,14 @@ class NuevoContainer extends Component {
     if (getCiudades.loading) {
       return <Loading />;
     }
-    const { formVisible } = this.state;
+
     return (
       <div>
-        <Button
-          type="primary"
-          icon="plus"
-          onClick={this.handleModal}
-        >Nueva Sucursal</Button>
         <FormSucursal
-          visible={formVisible}
-          handleModal={this.handleModal}
           ciudades={getCiudades.ciudades}
           sucursal={this.state.sucursal}
           onSubmit={this.onSubmit}
+          onCancel={this.onCancel}
           onChange={this.onChange}
         />
       </div>
@@ -73,9 +67,9 @@ export default compose(
   graphql(createSucursal,
     { name: 'crearSucursal',
       options: {
-        refetchQueries: [
-          'sucursales',
-        ],
+        refetchQueries: [{
+          query: querySucursales,
+        }],
       },
     }),
   graphql(queryCiudades,

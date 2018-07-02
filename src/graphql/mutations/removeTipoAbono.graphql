@@ -1,0 +1,3 @@
+mutation removeTipoAbono($id: Int!) {
+  removeTipoAbono(id: $id)
+}

@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const GitRevisionPlugin = require('git-revision-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
-const DashboardPlugin = require('webpack-dashboard/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PurifyCSSPlugin = require('purifycss-webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -35,7 +34,6 @@ exports.devServer = ({ host, port } = {}) => ({
       inject: false,
     }),
     new ErrorOverlayPlugin(),
-    new DashboardPlugin(),
   ],
 });
 

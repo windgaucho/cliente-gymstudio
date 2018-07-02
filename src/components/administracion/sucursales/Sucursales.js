@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Table, Row, Col, Button, Divider } from 'antd';
 
 import FieldError from '../../common/FieldError';
-// import NuevoContainer from './NuevoContainer';
+import NuevoContainer from './NuevoContainer';
 
 class Sucursales extends Component {
   state = {
@@ -47,13 +47,20 @@ class Sucursales extends Component {
 
   render() {
     const { sucursales, error } = this.props;
+
     return (
       <div>
         <Row style={{ marginBottom: 10 }}>
           <Col span={21}>
             <h3>Administración de Sucursales</h3>
           </Col>
-          <Col span={3} style={{ textAlign: 'right' }} />
+          <Col span={3} style={{ textAlign: 'right' }}>
+            <Button
+              type="primary"
+              icon="plus"
+              onClick={this.props.nuevo}
+            >Nueva Sucursal</Button>
+          </Col>
         </Row>
         { error ?
           <FieldError mensaje={error} />

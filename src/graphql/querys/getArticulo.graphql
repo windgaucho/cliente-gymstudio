@@ -1,12 +1,14 @@
 query getArticulo($id: String!) {
-  getArticulo(id: $id) {
+  articulo(id: $id) {
     id
     nombre
     precio
     idRubro
+    idSucursal
     rubro {
       id
       nombre
+      idSucursal
     }
   }
 }

@@ -1,0 +1,8 @@
+mutation updateTipoAbono($tipoAbono: InputTipoAbono!) {
+  updateTipoAbono(tipoAbono: $tipoAbono) {
+    id
+    nombre
+    precio
+    idSucursal
+  }
+}

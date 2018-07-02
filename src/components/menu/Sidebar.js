@@ -49,6 +49,9 @@ class Sidebar extends Component {
             <Menu.Item key="sucursales">
               <Link to="/administracion/sucursales">Sucursales</Link>
             </Menu.Item>
+            <Menu.Item key="abonos">
+              <Link to="/administracion/tipos_abonos">Tipos de Abono</Link>
+            </Menu.Item>
             <Menu.Item key="rubros">
               <Link to="/administracion/rubros">Rubros</Link>
             </Menu.Item>
@@ -57,11 +60,11 @@ class Sidebar extends Component {
             </Menu.Item>
           </SubMenu>
           <SubMenu
-            key="clientes"
-            title={<span><Icon type="user" /><span>Clientes</span></span>}
+            key="gestion"
+            title={<span><Icon type="user" /><span>Gestión</span></span>}
           >
-            <Menu.Item key="admClientes">
-              <Link to="/clientes/gestion">Gestión</Link>
+            <Menu.Item key="clientes">
+              <Link to="/gestion/clientes">Clientes</Link>
             </Menu.Item>
           </SubMenu>
           <SubMenu

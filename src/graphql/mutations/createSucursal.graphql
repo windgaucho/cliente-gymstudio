@@ -1,5 +1,6 @@
 mutation createSucursal($sucursal: InputSucursal!) {
   createSucursal(sucursal: $sucursal) {
+    id
     nombre
     idCiudad
   }

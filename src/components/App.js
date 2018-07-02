@@ -7,6 +7,8 @@ import Sidebar from './menu/Sidebar';
 import Header from './common/Header';
 import Home from './common/Home';
 import Administracion from './administracion';
+import Gestion from './gestion/Index';
+
 import Login from '../components/auth/LoginContainer';
 import Logout from '../components/auth/Logout';
 
@@ -50,6 +52,11 @@ class App extends Component {
                   <RutaAutenticada
                     path="/administracion"
                     component={Administracion}
+                    {...this.props}
+                  />
+                  <RutaAutenticada
+                    path="/gestion"
+                    component={Gestion}
                     {...this.props}
                   />
                 </Switch>

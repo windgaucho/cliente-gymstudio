@@ -2,7 +2,6 @@ mutation updateRubro($rubro: InputRubro!) {
   updateRubro(rubro: $rubro) {
     id
     nombre
-    tipo
-    grupo
+    idSucursal
   }
 }

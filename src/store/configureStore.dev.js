@@ -4,13 +4,15 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 import thunk from 'redux-thunk';
 
-import cliente from '../reducers/cliente';
 import rootReducer from '../reducers';
+import cliente from '../reducers/cliente';
+import sucursal from '../reducers/sucursal';
 
 export default function configureStore() {
   const store = createStore(
     combineReducers({
       cliente,
+      sucursal,
     }),
     compose(
       applyMiddleware(thunk, reduxImmutableStateInvariant()),

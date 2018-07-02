@@ -1,0 +1,8 @@
+query getTipoAbono($id: String!) {
+  tipoAbono(id: $id) {
+    id
+    nombre
+    precio
+    idSucursal
+  }
+}

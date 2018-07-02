@@ -4,5 +4,6 @@ query getUsuario {
     userId
     apellido
     nombre
+    idSucursal
   }
 }

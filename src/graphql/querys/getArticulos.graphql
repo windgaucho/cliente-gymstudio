@@ -1,12 +1,14 @@
-query getArticulos {
-  getArticulos {
+query getArticulos($idSucursal: String!) {
+  articulos(idSucursal: $idSucursal) {
     id
     nombre
     precio
     idRubro
+    idSucursal
     rubro {
       id
       nombre
+      idSucursal
     }
   }
 }

@@ -1,0 +1,11 @@
+mutation updateSucursal($sucursal: InputSucursal!) {
+  updateSucursal(sucursal: $sucursal) {
+    id
+    nombre
+    idCiudad
+    ciudad {
+      id
+      nombre
+    }
+  }
+}

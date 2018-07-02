@@ -1,8 +1,7 @@
-query getRubros {
-  getRubros {
+query getRubros($idSucursal: String!) {
+  rubros(idSucursal: $idSucursal) {
     id
     nombre
-    tipo
-    grupo
+    idSucursal
   }
 }

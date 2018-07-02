@@ -1,0 +1,11 @@
+query getSucursal($id: String!) {
+  sucursal(id: $id) {
+    id
+    nombre
+    idCiudad
+    ciudad {
+      id
+      nombre
+    }
+  }
+}

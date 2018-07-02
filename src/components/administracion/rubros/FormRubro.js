@@ -1,23 +1,29 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Row, Col, Form, Input, Select, Button, Card } from 'antd';
+import { Form, Input, Button, Card, Row, Col } from 'antd';
+import { withRouter } from 'react-router-dom';
 
-import { mapOptionSelect } from '../../../selectors/selectors';
+import FieldError from '../../common/FieldError';
 
-const FormItem = Form.Item;
+class FormCardRubro extends Component {
+  onCancel = () => {
+    this.props.history.push('/administracion/rubros');
+  }
 
-class FormSucursal extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        this.props.onSubmit();
+        this.props.onSubmit()
+          .then(() => {
+            this.props.history.push('/administracion/rubros');
+          });
       }
     });
   }
 
   render() {
-    const { ciudades } = this.props;
+    const FormItem = Form.Item;
     const { getFieldDecorator } = this.props.form;
     const formItemLayout = {
       labelCol: {
@@ -34,33 +40,19 @@ class FormSucursal extends Component {
       labelCol: { span: 3 },
       wrapperCol: { span: 8, offset: 3 },
     };
-
+    const { error } = this.props;
     return (
       <Row>
         <Col span={20} offset={2}>
-          <Card title="Sucursales" bordered={false}>
+          <Card title="Rubros" bordered={false}>
             <Form>
-              <FormItem
-                {...formItemLayout}
-                label="Ciudad"
-              >
-                {getFieldDecorator('idCiudad', {
-                  rules: [{ required: true, message: 'Por favor, seleccione la ciudad' }],
-                })(
-                  <Select>
-                    {mapOptionSelect(ciudades)}
-                  </Select>
-                )}
-              </FormItem>
               <FormItem
                 {...formItemLayout}
                 label="Nombre"
               >
                 {getFieldDecorator('nombre', {
-                  rules: [{ required: true, message: 'Por favor, ingrese el nombre de la sucursal' }],
-                })(
-                  <Input />
-                )}
+                  rules: [{ required: true, message: 'Por favor, ingrese el nombre del rubro' }],
+                })(<Input />)}
               </FormItem>
               <FormItem
                 {...formTailLayout}
@@ -73,11 +65,19 @@ class FormSucursal extends Component {
                 </Button>
                 <Button
                   style={{ marginLeft: 8 }}
-                  onClick={this.props.onCancel}
+                  onClick={this.onCancel}
                 >
                   Cancelar
                 </Button>
               </FormItem>
+              { error ?
+                <FormItem
+                  {...formTailLayout}
+                >
+                  <FieldError mensaje={error} />
+                </FormItem>
+                : null
+              }
             </Form>
           </Card>
         </Col>
@@ -86,22 +86,24 @@ class FormSucursal extends Component {
   }
 }
 
-FormSucursal.propTypes = {
-  sucursal: PropTypes.object.isRequired,
+FormCardRubro.propTypes = {
+  rubro: PropTypes.object.isRequired,
 };
-
 export default Form.create({
   onValuesChange(props, changedFields) {
     props.onChange(changedFields);
   },
   mapPropsToFields(props) {
     return {
-      idCiudad: Form.createFormField({
-        value: props.sucursal.idCiudad,
-      }),
       nombre: Form.createFormField({
-        value: props.sucursal.nombre,
+        value: props.rubro.nombre,
+      }),
+      tipo: Form.createFormField({
+        value: props.rubro.tipo,
+      }),
+      grupo: Form.createFormField({
+        value: props.rubro.grupo,
       }),
     };
   },
-})(FormSucursal);
+})(withRouter(FormCardRubro));

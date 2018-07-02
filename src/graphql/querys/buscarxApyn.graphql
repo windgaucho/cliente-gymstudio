@@ -1,5 +1,5 @@
-query buscarxApyn($busqueda: String!) {
-  buscarxApyn(busqueda: $busqueda) {
+query buscarxApyn($idSucursal: Int!, $apyn: String!) {
+  buscarxApyn(idSucursal: $idSucursal, apyn: $apyn) {
     id
     apellido
     nombre

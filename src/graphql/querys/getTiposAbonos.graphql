@@ -1,0 +1,8 @@
+query getTiposAbonos($idSucursal: String!) {
+  tiposAbonos(idSucursal: $idSucursal) {
+    id
+    nombre
+    precio
+    idSucursal
+  }
+}
