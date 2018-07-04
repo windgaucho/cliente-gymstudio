@@ -1,7 +1,19 @@
 query getClientes {
   getClientes {
+    idSucursal
     id
+    docId
     apellido
     nombre
+    domicilio
+    telefono
+    contacto
+    mail
+    sexo
+    fechaNacimiento
+    fechaIngreso
+    fechaVencimiento
+    observaciones
+    idTipoAbono
   }
 }

@@ -1,25 +1,19 @@
 query getCliente($id: Int!) {
-  getCliente(id: $id) {
+  cliente(id: $id) {
+    idSucursal
     id
+    docId
     apellido
     nombre
-    dni
     domicilio
     telefono
     contacto
     email
+    sexo
+    fechaNacimiento
     fechaIngreso
     fechaVencimiento
-    pagos {
-      id
-      fecha
-      detalle
-      importe
-      pago
-      idArticulo
-      idCliente
-    }
+    observaciones
+    idTipoAbono
   }
-
-  saldo(idCliente: $id)
 }

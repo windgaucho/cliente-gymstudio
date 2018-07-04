@@ -1,13 +1,23 @@
 mutation updateCliente($cliente: InputCliente!) {
   updateCliente(cliente: $cliente) {
+    idSucursal
     id
+    docId
     apellido
     nombre
-    dni
     domicilio
+    telefono
     contacto
     email
+    sexo
+    fechaNacimiento
     fechaIngreso
     fechaVencimiento
+    observaciones
+    idTipoAbono
+    tipoAbono {
+      id
+      nombre
+    }
   }
 }

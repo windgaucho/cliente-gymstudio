@@ -63,13 +63,13 @@ class ClientesContainer extends Component {
   }
 
   nuevo = () => {
-    this.props.history.push('/clientes/nuevo');
+    this.props.history.push('/gestion/clientes/nuevo');
   }
 
   editar = (e) => {
     const { id } = e.target;
     this.props.actions.setApynCliente(this.state.cliente.apyn);
-    this.props.history.push(`/clientes/editar/${id}`);
+    this.props.history.push(`/gestion/clientes/editar/${id}`);
   }
 
   abonos = (e) => {

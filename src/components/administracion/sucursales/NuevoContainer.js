@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { graphql, compose } from 'react-apollo';
-import { Button } from 'antd';
 
 import FormSucursal from './FormSucursal';
 import createSucursal from '../../../graphql/mutations/createSucursal.graphql';

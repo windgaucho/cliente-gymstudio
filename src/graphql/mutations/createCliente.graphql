@@ -1,9 +1,23 @@
 mutation createCliente($cliente: InputCliente!) {
   createCliente(cliente: $cliente) {
+    idSucursal
     id
+    docId
     apellido
     nombre
+    domicilio
+    telefono
+    contacto
+    email
+    sexo
+    fechaNacimiento
     fechaIngreso
     fechaVencimiento
+    observaciones
+    idTipoAbono
+    tipoAbono {
+      id
+      nombre
+    }
   }
 }
