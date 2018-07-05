@@ -15,7 +15,7 @@ class EditarContainer extends Component {
   };
 
   onCompleted = (data) => {
-    console.log('onCompleted', data);
+    // console.log('onCompleted', data);
   }
 
   onSubmit = () => {

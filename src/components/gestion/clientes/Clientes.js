@@ -151,7 +151,7 @@ export default Form.create({
   mapPropsToFields(props) {
     return {
       apyn: Form.createFormField({
-        value: props.cliente.apyn,
+        value: props.apyn,
       }),
     };
   },

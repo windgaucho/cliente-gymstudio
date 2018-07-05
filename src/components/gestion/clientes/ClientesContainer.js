@@ -12,32 +12,18 @@ import * as actionsCliente from '../../../actions/cliente';
 
 class ClientesContainer extends Component {
   state = {
-    cliente: {
-      apyn: '',
-    },
     clientes: [],
     loading: false,
   };
 
-  static getDerivedStateFromProps(props) {
-    if (props.apyn) {
-      return {
-        cliente: {
-          apyn: props.apyn,
-        },
-      };
-    }
-    return null;
-  }
-
   componentDidMount() {
-    if (this.state.cliente.apyn) {
+    if (this.props.apyn) {
       this.setState({ loading: true });
       this.props.client.query({
         query: buscarxApyn,
         variables: {
           idSucursal: this.props.usuario.idSucursal,
-          apyn: this.state.cliente.apyn,
+          apyn: this.props.apyn,
         },
       }).then(resultado => {
         this.setState({ clientes: resultado.data.buscarxApyn, loading: false });
@@ -46,10 +32,11 @@ class ClientesContainer extends Component {
   }
 
   onChange = (field) => {
+    // this.setState({ loading: true });
+    this.props.actions.setApynCliente(field.apyn);
     if (field.apyn.length < 3) {
-      return this.setState({ cliente: { ...field } });
+      return;
     }
-    this.setState({ loading: true });
     this.props.client.query({
       query: buscarxApyn,
       variables: {
@@ -58,7 +45,7 @@ class ClientesContainer extends Component {
       },
       fetchPolicy: 'network-only',
     }).then(resultado => {
-      this.setState({ cliente: { ...field }, clientes: resultado.data.buscarxApyn, loading: false });
+      this.setState({ clientes: resultado.data.buscarxApyn });
     });
   }
 
@@ -68,7 +55,6 @@ class ClientesContainer extends Component {
 
   editar = (e) => {
     const { id } = e.target;
-    this.props.actions.setApynCliente(this.state.cliente.apyn);
     this.props.history.push(`/gestion/clientes/editar/${id}`);
   }
 
@@ -101,13 +87,14 @@ class ClientesContainer extends Component {
   }
 
   render() {
-    const { cliente, clientes, loading } = this.state;
+    const { clientes, loading } = this.state;
+    const { apyn } = this.props;
 
     return (
       <Clientes
         loading={loading}
         onChange={this.onChange}
-        cliente={cliente}
+        apyn={apyn}
         clientes={clientes}
         nuevo={this.nuevo}
         editar={this.editar}
